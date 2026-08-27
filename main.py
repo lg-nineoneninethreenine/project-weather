@@ -3,7 +3,7 @@ import time
 
 import requests
 
-import functions
+import modules
 
 api_key = "12383b48d66ef5a9ab3d48e9b393fdba"
 
@@ -45,10 +45,10 @@ vis_km = round(vis / 1000, 1)
 windspeed = wind["speed"]
 wind_deg = wind["deg"]
 
-temp_curr = functions.kelvin_to_celsius(main["temp"])
-feels_like = functions.kelvin_to_celsius(main["feels_like"])
-temp_min = functions.kelvin_to_celsius(main["temp_min"])
-temp_max = functions.kelvin_to_celsius(main["temp_max"])
+temp_curr = modules.kelvin_to_celsius(main["temp"])
+feels_like = modules.kelvin_to_celsius(main["feels_like"])
+temp_min = modules.kelvin_to_celsius(main["temp_min"])
+temp_max = modules.kelvin_to_celsius(main["temp_max"])
 
 pressure = main["pressure"]
 humidity = main["humidity"]
@@ -65,17 +65,17 @@ else:
     city += f", {country_code}"
 
 if corf == "F" or corf == "f":
-    temp_curr = functions.cel2f(temp_curr)
-    feels_like = functions.cel2f(feels_like)
-    temp_min = functions.cel2f(temp_min)
-    temp_max = functions.cel2f(temp_max)
+    temp_curr = modules.cel2f(temp_curr)
+    feels_like = modules.cel2f(feels_like)
+    temp_min = modules.cel2f(temp_min)
+    temp_max = modules.cel2f(temp_max)
 else:
     pass
 
-tempunit = functions.temp_unit(corf)
+tempunit = modules.temp_unit(corf)
 
-winddir = functions.wind_direction(wind_deg)
-functions.display(city, desc_title, desc_desc,
+winddir = modules.wind_direction(wind_deg)
+modules.display(city, desc_title, desc_desc,
             temp_curr, feels_like, temp_min,
             temp_max, humidity, pressure,
             windspeed, vis, vis_km, tempunit, winddir)
