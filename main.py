@@ -8,13 +8,18 @@ api_key = "12383b48d66ef5a9ab3d48e9b393fdba"
 city:str = input("Enter city name: ")
 
 resp = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}")
-
-if resp.status_code == 200:
-    pass
-else:
-    print(f"Error, API response code: {resp.status_code}. Program terminates in 3 seconds.")
-    time.sleep(3)
-    sys.exit(1)
+# TODO: try-except
+try:
+    if resp.status_code == 200:
+        pass
+    else:
+        print(f"Error, API response code: {resp.status_code}. Program terminates in 3 seconds.")
+        time.sleep(3)
+        sys.exit(1)
+except requests.exceptions.ConnectionError:
+        print("Error, unsuccessful connection to OpenWeatherMap. Program terminates in 3 seconds.")
+        time.sleep(3)
+        sys.exit(1)
 
 corf = input("\nCelsius or Fahrenheit? (Reply with C or F only. Not case-sensitive.)\n")
 print("\n")
