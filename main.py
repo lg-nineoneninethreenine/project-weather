@@ -8,7 +8,7 @@ api_key = "12383b48d66ef5a9ab3d48e9b393fdba"
 city:str = input("Enter city name: ")
 
 resp = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}")
-# TODO: try-except
+
 try:
     if resp.status_code == 200:
         pass
