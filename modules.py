@@ -1,5 +1,23 @@
 from types import ModuleType
 
+main: dict
+desc: dict
+vis: int
+wind: dict
+loc: dict
+cityname: str
+vis_km: float
+windspeed: int
+wind_deg: int
+temp_curr: float
+feels_like: float
+temp_min: float
+temp_max: float
+pressure: float
+humidity: float
+desc_title: str
+desc_desc: str
+
 
 def kelvin_to_celsius(temp: float):
     """
@@ -112,3 +130,28 @@ def city_search(
         time.sleep(3)
         sys.exit(1)
     return resp.json()
+
+
+def datadef(data):
+    global main, desc, vis, wind, loc, cityname, vis_km, windspeed, wind_deg, temp_curr, feels_like, temp_min, temp_max, pressure, humidity, desc_title, desc_desc
+    main = data["main"]
+    desc = data["weather"][0]
+    vis = data["visibility"]
+    wind = data["wind"]
+    loc = data["sys"]
+    cityname = data["name"]
+
+    vis_km = round(vis / 1000, 1)
+    windspeed = wind["speed"]
+    wind_deg = wind["deg"]
+
+    temp_curr = kelvin_to_celsius(main["temp"])
+    feels_like = kelvin_to_celsius(main["feels_like"])
+    temp_min = kelvin_to_celsius(main["temp_min"])
+    temp_max = kelvin_to_celsius(main["temp_max"])
+
+    pressure = main["pressure"]
+    humidity = main["humidity"]
+
+    desc_title = desc["main"]
+    desc_desc = desc["description"]
