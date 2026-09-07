@@ -12,7 +12,7 @@ city: str = input("Enter city name: ")
 corf = input("\nCelsius or Fahrenheit? (Reply with C or F only. Not case-sensitive.)\n")
 print("\n")
 
-if corf == "C" or corf == "F" or corf == "c" or corf == "f":
+if corf.upper() == "C" or corf.upper() == "F":
     tempunit = modules.temp_unit(corf)
 else:
     print(
