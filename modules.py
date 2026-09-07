@@ -99,9 +99,9 @@ def temp_unit(corf):
     """
     Simple function to define the temperature unit, depending on user input.
     """
-    if corf == "C" or corf == "c":
+    if corf.upper() == "C":
         return "°C"
-    if corf == "F" or corf == "f":
+    if corf.upper() == "F":
         return "°F"
 
 
