@@ -32,7 +32,7 @@ else:
     sys.exit(1)
 
 def kelvin_to_celsius(temp:float):
-    return round(temp - 273.16, 1)
+    return round(temp - 273.15, 1)
 def cel2f(temp:float):
     return round(((temp * 9/5) + 32),1)
 
