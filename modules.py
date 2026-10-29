@@ -2,7 +2,7 @@ import requests
 
 
 def kelvin_to_celsius(temperature: float) -> float:
-    return round(temperature - 273.16, 1)
+    return round(temperature - 273.15, 1)
 
 
 def cel2f(temperature: float) -> float:
