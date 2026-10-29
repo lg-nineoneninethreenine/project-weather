@@ -56,7 +56,7 @@ def display(city, desc_title, desc_desc,
     print(f"Visibility: {vis} m (or) {vis_km} km")
 
 def wind_direction(wind_deg:int):
-    if ((360 - 22.5) <= wind_deg <= (0 + 22.5)):
+    if wind_deg >= 337.5 or wind_deg <= 22.5:
         return "North (N)"
     elif ((0 + 22.5) <= wind_deg <= (90 - 22.5)):
         return "North-East (NE)"
