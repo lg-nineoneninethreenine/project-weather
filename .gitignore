@@ -1,9 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
-
+*test*
 test.py
 .vscode/
 typings/
+deprecated/
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

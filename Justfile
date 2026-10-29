@@ -5,6 +5,6 @@ check:
 fix:
     ruff check *.py --fix
     black *.py
-    isort *.py
+    isort main.py modules.py
 run:
     python main.py
